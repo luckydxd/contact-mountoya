@@ -1,12 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import Loader from "../components/Loader";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -15,14 +17,17 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
+    setIsLoading(true);
 
-    const success = login(email, password);
-
-    if (success) {
-      navigate("/dashboard");
-    } else {
-      setError("Email atau password salah.");
-    }
+    setTimeout(() => {
+      const success = login(email, password);
+      if (success) {
+        navigate("/dashboard");
+      } else {
+        setError("Email atau password salah.");
+      }
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
@@ -56,6 +61,7 @@ export default function LoginPage() {
 
         <div className="w-full lg:w-1/2 flex items-center justify-center">
           <div className="max-w-md w-full bg-white shadow-xl rounded-2xl p-8">
+            {isLoading && <Loader>Mohon tunggu...</Loader>}
             <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
               Selamat Datang!
             </h2>

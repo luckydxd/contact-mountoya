@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { X } from "lucide-react";
 import { toast } from "react-toastify";
 import MapPicker from "./MapPicker";
+import Loader from "../components/Loader";
 
 export default function ContactModal({ isOpen, onClose, mode, contactData }) {
   const { addContact, updateContact } = useAuth();
@@ -11,6 +12,7 @@ export default function ContactModal({ isOpen, onClose, mode, contactData }) {
   const [photoPreview, setPhotoPreview] = useState(null);
   const [location, setLocation] = useState(null);
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isOpen && mode === "edit" && contactData) {
@@ -27,6 +29,7 @@ export default function ContactModal({ isOpen, onClose, mode, contactData }) {
       setPhotoPreview(null);
       setLocation(null);
       setErrors({});
+      setIsLoading(false);
     }
   }, [isOpen, mode, contactData]);
 
@@ -90,6 +93,9 @@ export default function ContactModal({ isOpen, onClose, mode, contactData }) {
       toast.error("Periksa kembali isian anda");
       return;
     }
+
+    setIsLoading(true);
+
     if (!validateForm()) return;
     const contactPayload = { ...formData, photo: photoPreview, location };
     if (mode === "add") {
@@ -107,6 +113,7 @@ export default function ContactModal({ isOpen, onClose, mode, contactData }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 z-[100] flex justify-center items-center p-4">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+        {isLoading && <Loader>Menyimpan data...</Loader>}
         <div className="p-6 sm:p-8">
           <div className="flex justify-between items-center pb-4 border-b border-gray-200">
             <h2 className="text-xl font-semibold text-gray-800">

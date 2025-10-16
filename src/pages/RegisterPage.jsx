@@ -2,12 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
+import Loader from "../components/Loader";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { register } = useAuth();
 
@@ -16,15 +18,19 @@ export default function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
+    setIsLoading(true);
 
-    const success = register(email, password);
+    setTimeout(() => {
+      const success = register(email, password);
 
-    if (success) {
-      toast.success("Registrasi berhasil! Silakan masuk.");
-      navigate("/login");
-    } else {
-      setError("Email ini sudah terdaftar. Silakan gunakan email lain.");
-    }
+      if (success) {
+        toast.success("Registrasi berhasil! Silakan masuk.");
+        navigate("/login");
+      } else {
+        setError("Email ini sudah terdaftar. Silakan gunakan email lain.");
+      }
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
@@ -57,6 +63,8 @@ export default function RegisterPage() {
 
         <div className="w-full lg:w-1/2 flex items-center justify-center">
           <div className="max-w-md w-full bg-white shadow-xl rounded-2xl p-8">
+            {isLoading && <Loader>Mohon tunggu...</Loader>}
+
             <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
               Buat Akun Baru
             </h2>
