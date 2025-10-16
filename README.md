@@ -42,6 +42,7 @@ Instal semua dependensi:
 
 npm install
 
+
 Menjalankan Aplikasi
 
 Setelah semua dependensi terinstal, aplikasi siap dijalankan di lingkungan development:
@@ -49,6 +50,7 @@ Setelah semua dependensi terinstal, aplikasi siap dijalankan di lingkungan devel
 Di dalam direktori proyek, jalankan perintah ini:
 
 npm run dev
+
 
 Terminal akan menampilkan alamat lokal tempat aplikasi berjalan, biasanya seperti ini:
 
