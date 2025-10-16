@@ -1,16 +1,58 @@
-# React + Vite
+ContactApp: Aplikasi Manajemen Kontak Modern
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ContactApp adalah aplikasi web CRUD (Create, Read, Update, Delete) yang dirancang untuk mengelola daftar kontak secara efisien. Proyek ini dibangun sebagai Single Page Application (SPA) menggunakan React, Vite, dan JavaScript.
 
-Currently, two official plugins are available:
+🚀 Fitur Utama
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👤 Manajemen Kontak Penuh (CRUD): Tambah, lihat, perbarui, dan hapus kontak dengan mudah.
 
-## React Compiler
+🔐 Autentikasi Sisi Klien: Alur registrasi, login, dan logout yang aman dengan rute terlindungi.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🗺️ Integrasi Peta Interaktif: Tampilkan semua lokasi kontak di satu peta dan pilih lokasi saat menambah/mengedit kontak menggunakan Leaflet.js.
 
-## Expanding the ESLint configuration
+🖼️ Upload Foto & Live Preview: Unggah foto profil untuk setiap kontak dan lihat pratinjau langsung.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✨ UI/UX Modern & Responsif: Antarmuka yang bersih, notifikasi toast modern, dan dialog konfirmasi yang ramah pengguna.
+
+🛠️ Teknologi yang Digunakan
+
+Frontend: React + Vite + JavaScript (ES6)
+
+Styling: Tailwind CSS
+
+Peta: Leaflet.js & React-Leaflet
+
+Notifikasi: React-Toastify & Notiflix
+
+Persiapan Awal
+
+Sebelum memulai, pastikan perangkat lunak berikut sudah terinstal di sistem Anda:
+
+Node.js: Pastikan Anda memiliki versi LTS (Long Term Support) terbaru. Node.js akan secara otomatis menginstal npm (Node Package Manager). Unduh di nodejs.org.
+
+Git: Diperlukan untuk mengkloning repositori. Unduh di git-scm.com.
+
+📦 Instalasi
+
+Clone repository ini:
+git clone [https://github.com/luckydxd/contact-mountoya](https://github.com/luckydxd/contact-mountoya)
+cd contact-mountoya
+
+Instal semua dependensi:
+
+npm install
+
+Menjalankan Aplikasi
+
+Setelah semua dependensi terinstal, aplikasi siap dijalankan di lingkungan development:
+
+Di dalam direktori proyek, jalankan perintah ini:
+
+npm run dev
+
+Terminal akan menampilkan alamat lokal tempat aplikasi berjalan, biasanya seperti ini:
+
+VITE vX.X.X ready in XXXms
+
+➜ Local: http://localhost:5173/
+➜ Network: use --host to expose
