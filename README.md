@@ -1,6 +1,6 @@
-ContactApp: Aplikasi Manajemen Kontak Modern
+Contact-Mountoya: Aplikasi Manajemen Kontak
 
-ContactApp adalah aplikasi web CRUD (Create, Read, Update, Delete) yang dirancang untuk mengelola daftar kontak secara efisien. Proyek ini dibangun sebagai Single Page Application (SPA) menggunakan React, Vite, dan JavaScript.
+Contact-Mountoya adalah aplikasi web CRUD (Create, Read, Update, Delete) yang dirancang untuk mengelola daftar kontak secara efisien. Proyek ini dibangun sebagai Single Page Application (SPA) menggunakan React, Vite, dan JavaScript.
 
 🚀 Fitur Utama
 
